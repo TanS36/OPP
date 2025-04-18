@@ -1,0 +1,2 @@
+BattleArena - Посредник
+WeatherAlert - Наблюдатель
