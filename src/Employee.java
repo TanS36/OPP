@@ -35,7 +35,7 @@
      }
  }
 
-  class Main {
+  class Main2 {
      public static void main(String[] args) {
          Employee employee = new Employee("Иван", 50000);
 

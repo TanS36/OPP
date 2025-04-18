@@ -32,7 +32,7 @@ class FixedAccount extends BankAccount {
     }
 }
 
-class Main2 {
+class Main5 {
     public static void main(String[] args) {
         BankAccount savings = new SavingsAccount(1000);
         BankAccount fixed = new FixedAccount(1000);

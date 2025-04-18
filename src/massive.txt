@@ -1,0 +1,239 @@
+1. Arrays.toString(array)
+Выводит массив в виде строки.
+int[] numbers = {1, 2, 3, 4};
+System.out.println(Arrays.toString(numbers)); // [1, 2, 3, 4]
+
+2. Arrays.sort(array)
+Сортирует массив по возрастанию.
+int[] numbers = {3, 1, 4, 2};
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // [1, 2, 3, 4]
+
+3. Arrays.fill(array, value)
+Заполняет массив указанным значением.
+int[] numbers = new int[5];
+Arrays.fill(numbers, 7);
+System.out.println(Arrays.toString(numbers)); // [7, 7, 7, 7, 7]
+
+4. Arrays.copyOf(array, newLength)
+Создает копию массива с новой длиной.
+int[] numbers = {1, 2, 3};
+int[] copy = Arrays.copyOf(numbers, 5);
+System.out.println(Arrays.toString(copy)); // [1, 2, 3, 0, 0]
+
+5. Arrays.copyOfRange(array, start, end)
+Создает копию части массива от start до end (не включая end).
+int[] numbers = {1, 2, 3, 4, 5};
+int[] copy = Arrays.copyOfRange(numbers, 1, 4);
+System.out.println(Arrays.toString(copy)); // [2, 3, 4]
+
+6. Arrays.equals(array1, array2)
+Сравнивает два массива, возвращает true, если они равны.
+int[] a = {1, 2, 3};
+int[] b = {1, 2, 3};
+System.out.println(Arrays.equals(a, b)); // true
+
+7. Arrays.binarySearch(array, key)
+Ищет элемент в отсортированном массиве, возвращает индекс или -(insertion point) - 1.
+int[] numbers = {1, 3, 5, 7};
+System.out.println(Arrays.binarySearch(numbers, 3)); // 1
+System.out.println(Arrays.binarySearch(numbers, 4)); // -3
+
+8. System.arraycopy(src, srcPos, dest, destPos, length)
+Копирует часть массива.
+int[] src = {1, 2, 3, 4, 5};
+int[] dest = new int[5];
+System.arraycopy(src, 1, dest, 0, 3);
+System.out.println(Arrays.toString(dest)); // [2, 3, 4, 0, 0]
+
+9. IntStream.of(array).sum()
+Возвращает сумму элементов массива.
+int[] numbers = {1, 2, 3, 4};
+int sum = IntStream.of(numbers).sum();
+System.out.println(sum); // 10
+
+10. IntStream.of(array).average().orElse(0)
+Находит среднее значение.
+double avg = IntStream.of(1, 2, 3, 4).average().orElse(0);
+System.out.println(avg); // 2.5
+
+11. Arrays.stream(array).max().getAsInt()
+Находит максимальный элемент.
+int max = Arrays.stream(new int[]{1, 5, 3}).max().getAsInt();
+System.out.println(max); // 5
+
+12. Arrays.stream(array).min().getAsInt()
+Находит минимальный элемент.
+int min = Arrays.stream(new int[]{4, 2, 8}).min().getAsInt();
+System.out.println(min); // 2
+
+13. Arrays.asList(array)
+Преобразует массив в List.
+String[] arr = {"a", "b", "c"};
+List<String> list = Arrays.asList(arr);
+System.out.println(list); // [a, b, c]
+
+14. Collections.reverse(list)
+Разворачивает массив (через List).
+List<Integer> list = Arrays.asList(1, 2, 3);
+Collections.reverse(list);
+System.out.println(list); // [3, 2, 1]
+
+15. Arrays.deepToString(array)
+Выводит многомерный массив в виде строки.
+int[][] matrix = {{1, 2}, {3, 4}};
+System.out.println(Arrays.deepToString(matrix)); // [[1, 2], [3, 4]]
+16. IntStream.of(array).distinct().toArray()
+Удаляет дубликаты.
+int[] numbers = {1, 2, 2, 3, 4, 4};
+int[] unique = IntStream.of(numbers).distinct().toArray();
+System.out.println(Arrays.toString(unique)); // [1, 2, 3, 4]
+
+17. Arrays.parallelSort(array)
+Параллельная сортировка для больших массивов.
+int[] numbers = {4, 1, 3, 2};
+Arrays.parallelSort(numbers);
+System.out.println(Arrays.toString(numbers)); // [1, 2, 3, 4]
+
+18. List.toArray(new Type[0])
+Преобразует List в массив.
+List<String> list = Arrays.asList("a", "b", "c");
+String[] array = list.toArray(new String[0]);
+System.out.println(Arrays.toString(array)); // [a, b, c]
+
+19. Stream.of(array).filter(condition).toArray()
+Фильтрация массива.
+int[] numbers = {1, 2, 3, 4, 5};
+int[] even = Arrays.stream(numbers).filter(n -> n % 2 == 0).toArray();
+System.out.println(Arrays.toString(even)); // [2, 4]
+20. IntStream.range(start, end).toArray()
+Создает массив чисел от start до end-1.
+int[] range = IntStream.range(1, 5).toArray();
+System.out.println(Arrays.toString(range)); // [1, 2, 3, 4]
+
+21-30. Дополнительные методы
+Arrays.setAll(array, i -> i * 2) – заполняет массив по формуле.
+Collections.shuffle(list) – перемешивает элементы.
+Arrays.stream(array).anyMatch(condition) – проверяет, есть ли элемент.
+Arrays.stream(array).allMatch(condition) – проверяет, все ли элементы соответствуют.
+Arrays.stream(array).noneMatch(condition) – проверяет, нет ли таких элементов.
+Arrays.stream(array).map(n -> n * 2).toArray() – изменяет элементы.
+Arrays.sort(array, Comparator.reverseOrder()) – сортировка в обратном порядке.
+IntStream.rangeClosed(1, 5).toArray() – массив от 1 до 5 включительно.
+List.copyOf(list) – создает неизменяемый список.
+Arrays.mismatch(arr1, arr2) – ищет индекс первого несовпадения.
+---
+
+31. Arrays.stream(array).count()
+Возвращает количество элементов в массиве.
+long count = Arrays.stream(new int[]{1, 2, 3, 4}).count();
+System.out.println(count); // 4
+
+32. Arrays.stream(array).reduce(операция).getAsInt()
+Объединяет элементы массива в одно значение (например, сумму).
+int sum = Arrays.stream(new int[]{1, 2, 3, 4}).reduce(Integer::sum).getAsInt();
+System.out.println(sum); // 10
+
+33. Arrays.stream(array).reduce(1, (a, b) -> a * b)
+Перемножает все элементы массива.
+int product = Arrays.stream(new int[]{2, 3, 4}).reduce(1, (a, b) -> a * b);
+System.out.println(product); // 24
+
+34. IntStream.range(0, array.length).map(i -> array[i]).toArray()
+Копирует массив с изменениями.
+int[] numbers = {1, 2, 3};
+int[] doubled = IntStream.range(0, numbers.length).map(i -> numbers[i] * 2).toArray();
+System.out.println(Arrays.toString(doubled)); // [2, 4, 6]
+
+35. Arrays.stream(array).mapToObj(String::valueOf).toArray(String[]::new)
+Преобразует массив чисел в массив строк.
+int[] numbers = {1, 2, 3};
+String[] strArray = Arrays.stream(numbers).mapToObj(String::valueOf).toArray(String[]::new);
+System.out.println(Arrays.toString(strArray)); // ["1", "2", "3"]
+
+36. Arrays.stream(array).mapToDouble(x -> x).sum()
+Сумма элементов с плавающей точкой.
+double[] numbers = {1.5, 2.5, 3.5};
+double sum = Arrays.stream(numbers).sum();
+System.out.println(sum); // 7.5
+
+37. IntStream.iterate(0, i -> i + 2).limit(n).toArray()
+Создает массив первых n четных чисел.
+int[] evens = IntStream.iterate(0, i -> i + 2).limit(5).toArray();
+System.out.println(Arrays.toString(evens)); // [0, 2, 4, 6, 8]
+
+38. Arrays.sort(array, (a, b) -> b - a)
+Сортировка чисел в порядке убывания.
+Integer[] numbers = {3, 1, 4, 2};
+Arrays.sort(numbers, (a, b) -> b - a);
+System.out.println(Arrays.toString(numbers)); // [4, 3, 2, 1]
+
+39. Arrays.stream(array).skip(n).toArray()
+Пропускает n первых элементов массива.
+int[] numbers = {1, 2, 3, 4, 5};
+int[] result = Arrays.stream(numbers).skip(2).toArray();
+System.out.println(Arrays.toString(result)); // [3, 4, 5]
+
+40. Arrays.stream(array).limit(n).toArray()
+Оставляет только n первых элементов массива.
+int[] numbers = {1, 2, 3, 4, 5};
+int[] result = Arrays.stream(numbers).limit(3).toArray();
+System.out.println(Arrays.toString(result)); // [1, 2, 3]
+
+41. Arrays.setAll(array, i -> i * i)
+Заполняет массив значениями, основанными на индексе.
+int[] numbers = new int[5];
+Arrays.setAll(numbers, i -> i * i);
+System.out.println(Arrays.toString(numbers)); // [0, 1, 4, 9, 16]
+
+42. Arrays.stream(array).sorted().toArray()
+Сортирует массив и возвращает новый.
+int[] numbers = {3, 1, 4, 2};
+int[] sorted = Arrays.stream(numbers).sorted().toArray();
+System.out.println(Arrays.toString(sorted)); // [1, 2, 3, 4]
+
+43. Collections.addAll(list, array)
+Добавляет элементы массива в ArrayList.
+String[] arr = {"a", "b", "c"};
+List<String> list = new ArrayList<>();
+Collections.addAll(list, arr);
+System.out.println(list); // [a, b, c]
+
+44. Arrays.stream(array).collect(Collectors.toList())
+Преобразует массив в List.
+Integer[] numbers = {1, 2, 3};
+List<Integer> list = Arrays.stream(numbers).collect(Collectors.toList());
+System.out.println(list); // [1, 2, 3]
+
+45. List.of(array)
+Создает неизменяемый список из массива.
+List<Integer> list = List.of(1, 2, 3);
+System.out.println(list); // [1, 2, 3]
+
+46. Arrays.stream(array).max(Comparator.naturalOrder()).orElse(0)
+Альтернативный способ нахождения максимума.
+int max = Arrays.stream(new int[]{1, 5, 3}).max().orElse(0);
+System.out.println(max); // 5
+
+47. Arrays.stream(array).min(Comparator.naturalOrder()).orElse(0)
+Альтернативный способ нахождения минимума.
+int min = Arrays.stream(new int[]{4, 2, 8}).min().orElse(0);
+System.out.println(min); // 2
+
+48. Arrays.stream(array).mapToObj(Integer::toHexString).toArray(String[]::new)
+Преобразует числа в их шестнадцатеричное представление.
+int[] numbers = {10, 15, 255};
+String[] hexValues = Arrays.stream(numbers).mapToObj(Integer::toHexString).toArray(String[]::new);
+System.out.println(Arrays.toString(hexValues)); // ["a", "f", "ff"]
+
+49. Arrays.mismatch(array1, array2)
+Возвращает индекс первого несовпадения в двух массивах (или -1, если массивы одинаковые).
+int[] a = {1, 2, 3, 4};
+int[] b = {1, 2, 9, 4};
+System.out.println(Arrays.mismatch(a, b)); // 2
+
+50. Arrays.stream(array).boxed().toArray(Integer[]::new)
+Преобразует int[] в Integer[].
+int[] numbers = {1, 2, 3};
+Integer[] boxed = Arrays.stream(numbers).boxed().toArray(Integer[]::new);
+System.out.println(Arrays.toString(boxed)); // [1, 2, 3]

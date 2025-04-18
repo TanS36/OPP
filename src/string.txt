@@ -1,0 +1,155 @@
+Вот 30 полезных методов для работы со строками (String) в Java.
+
+1. length()
+Возвращает длину строки.
+String s = "Hello";
+System.out.println(s.length()); // 5
+
+2. charAt(int index)
+Возвращает символ по индексу.
+String s = "Hello";
+System.out.println(s.charAt(1)); // 'e'
+
+3. substring(int beginIndex)
+Возвращает подстроку, начиная с указанного индекса.
+String s = "Hello";
+System.out.println(s.substring(2)); // "llo"
+
+4. substring(int beginIndex, int endIndex)
+Возвращает подстроку с начального до конечного индекса (не включая его).
+String s = "Hello";
+System.out.println(s.substring(1, 4)); // "ell"
+
+5. toLowerCase()
+Преобразует строку в нижний регистр.
+String s = "Hello";
+System.out.println(s.toLowerCase()); // "hello"
+
+6. toUpperCase()
+Преобразует строку в верхний регистр.
+String s = "Hello";
+System.out.println(s.toUpperCase()); // "HELLO"
+
+7. trim()
+Удаляет пробелы в начале и конце строки.
+String s = "  Hello  ";
+System.out.println(s.trim()); // "Hello"
+
+8. startsWith(String prefix)
+Проверяет, начинается ли строка с указанного префикса.
+String s = "Hello";
+System.out.println(s.startsWith("He")); // true
+
+9. endsWith(String suffix)
+Проверяет, заканчивается ли строка указанным суффиксом.
+String s = "Hello";
+System.out.println(s.endsWith("lo")); // true
+
+10. contains(String str)
+Проверяет, содержит ли строка указанную подстроку.
+String s = "Hello";
+System.out.println(s.contains("ll")); // true
+
+11. indexOf(String str)
+Возвращает индекс первого вхождения подстроки.
+String s = "Hello";
+System.out.println(s.indexOf("l")); // 2
+
+12. lastIndexOf(String str)
+Возвращает индекс последнего вхождения подстроки.
+String s = "Hello";
+System.out.println(s.lastIndexOf("l")); // 3
+
+13. isEmpty()
+Возвращает true, если строка пуста ("").
+String s = "";
+System.out.println(s.isEmpty()); // true
+
+14. isBlank() (Java 11)
+Возвращает true, если строка пуста или содержит только пробелы.
+String s = "   ";
+System.out.println(s.isBlank()); // true
+
+15. replace(String old, String new)
+Заменяет все вхождения подстроки на другую.
+String s = "apple";
+System.out.println(s.replace("p", "b")); // "abble"
+
+16. replaceAll(String regex, String replacement)
+Заменяет подстроки, соответствующие регулярному выражению.
+String s = "abc123";
+System.out.println(s.replaceAll("\\d", "*")); // "abc***"
+
+17. replaceFirst(String regex, String replacement)
+Заменяет только первое вхождение, соответствующее регулярному выражению.
+String s = "abc123abc";
+System.out.println(s.replaceFirst("\\d", "*")); // "abc*23abc"
+
+18. split(String regex)
+Разделяет строку на массив строк по заданному разделителю.
+String s = "apple,banana,orange";
+String[] parts = s.split(",");
+System.out.println(Arrays.toString(parts)); // ["apple", "banana", "orange"]
+
+19. join(CharSequence delimiter, CharSequence... elements)
+Объединяет строки через разделитель.
+String result = String.join("-", "apple", "banana", "orange");
+System.out.println(result); // "apple-banana-orange"
+
+20. repeat(int count) (Java 11)
+Повторяет строку несколько раз.
+String s = "Hi";
+System.out.println(s.repeat(3)); // "HiHiHi"
+----
+
+21. matches(String regex)
+Проверяет, соответствует ли строка регулярному выражению.
+String s = "12345";
+System.out.println(s.matches("\\d+")); // true
+
+22. toCharArray()
+Преобразует строку в массив символов.
+char[] chars = "Hello".toCharArray();
+System.out.println(Arrays.toString(chars)); // ['H', 'e', 'l', 'l', 'o']
+
+23. format(String format, Object... args)
+Форматирует строку, используя printf-подобный синтаксис.
+String result = String.format("Name: %s, Age: %d", "Alice", 25);
+System.out.println(result); // "Name: Alice, Age: 25"
+
+24. codePointAt(int index)
+Возвращает числовой код символа в указанном индексе.
+String s = "A";
+System.out.println(s.codePointAt(0)); // 65
+
+25. codePoints() (Java 9)
+Возвращает IntStream кодов символов.
+String s = "Hello";
+s.codePoints().forEach(System.out::println); // 72 101 108 108 111
+
+26. compareTo(String anotherString)
+Сравнивает строки лексикографически.
+String s1 = "apple";
+String s2 = "banana";
+System.out.println(s1.compareTo(s2)); // -1 (apple < banana)
+
+27. compareToIgnoreCase(String anotherString)
+Сравнивает строки без учета регистра.
+String s1 = "Apple";
+String s2 = "apple";
+System.out.println(s1.compareToIgnoreCase(s2)); // 0
+
+28. strip() (Java 11)
+Удаляет пробельные символы (лучше, чем trim(), так как работает с Юникодом).
+String s = "  Hello  ";
+System.out.println(s.strip()); // "Hello"
+
+29. stripLeading() (Java 11)
+Удаляет пробелы в начале строки.
+String s = "  Hello";
+System.out.println(s.stripLeading()); // "Hello"
+
+30. stripTrailing() (Java 11)
+Удаляет пробелы в конце строки.
+String s = "Hello  ";
+System.out.println(s.stripTrailing()); // "Hello"
